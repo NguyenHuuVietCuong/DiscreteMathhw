@@ -61,10 +61,14 @@ vector <string> recursion(vector <string> &arr, int cap, int start){
             for(int i = inputStart; i < inputArrSize; i ++){
                 string temp1 = arr[i] + "()";
                 //cout << temp1 << " ";
-                string temp2 = "(" + arr[i] + ")";
+                string temp2 = "()" + arr[i];
+                string temp3 = "(" + arr[i] + ")";
                 //cout << temp2; 
                 arr.push_back(temp1);
-                arr.push_back(temp2);
+                if(temp1 != temp2){
+                    arr.push_back(temp2);
+                }
+                arr.push_back(temp3);
                 start ++;
             }
             return recursion(arr, cap, start);
@@ -90,7 +94,7 @@ int homeworkGCD(int a, int b){
     }
 }
 
-/* Ex 7, 8, 9 Testrun
+// Ex 7, 8, 9 Testrun
 int main(){
     vector <string> arr;
     arr.push_back(" ");
@@ -106,7 +110,8 @@ int main(){
     cout << temp[temp.size() - 1] << ".";
     return 0;
 }
-*/
+
+/*
 int main()
 {
     string s;
@@ -115,3 +120,4 @@ int main()
     //cout << m(s) << endl;
     //cout << reverse(s) << endl;
 }
+*/
